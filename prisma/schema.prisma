@@ -1,0 +1,33 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js" // recomendado
+  // output   = "../app/generated/prisma" // opcional; puedes quitarlo
+}
+
+datasource db {
+  provider = "postgresql"
+  // Usada por Prisma Client en runtime (puede ser pooled)
+  url      = env("DATABASE_URL")
+
+  // Usada por migrate/introspect (DEBE ser conexión directa, NO pooled)
+  directUrl = env("DIRECT_DATABASE_URL")
+
+  // Shadow DB para migrate dev (también directa)
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model Category {
+  id       Int       @id @default(autoincrement())
+  name     String
+  slug     String    @unique
+  products Product[]
+}
+
+model Product {
+  id         Int      @id @default(autoincrement())
+  name       String
+  price      Float
+  image      String
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
+}
