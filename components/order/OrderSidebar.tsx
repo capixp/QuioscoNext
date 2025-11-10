@@ -7,7 +7,6 @@ async function getCategories() {
 }
 
 export default async function OrderSidebar() {
-  //const categories = await prisma.category.findMany();
   const categories = await getCategories();
   console.log(categories);
   return (
