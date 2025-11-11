@@ -15,16 +15,12 @@ export default function RootLayout({
   console.log("Render <RootLayout>"); // <-- DEBE verse en el terminal de `npm run dev`
 
   return (
-    <html lang="es">
-      <body>
-        <div className="md:flex">
-          <OrderSidebar />
-          <main className="md:flex-1 md:h-screen md:overflow-y-scroll p-5">
-            {children}
-          </main>
-          <OrderSummary />
-        </div>
-      </body>
-    </html>
+    <div className="md:flex">
+      <OrderSidebar />
+      <main className="md:flex-1 md:h-screen md:overflow-y-scroll p-5">
+        {children}
+      </main>
+      <OrderSummary />
+    </div>
   );
 }
