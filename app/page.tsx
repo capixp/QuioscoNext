@@ -6,7 +6,7 @@ import OrderSidebar from "@/components/order/OrderSidebar";
 
 export default async function Page() {
   noStore();
-  console.log("Render <Page />"); // ✅ debe verse
+
   return (
     <main className="flex">
       <OrderSidebar />

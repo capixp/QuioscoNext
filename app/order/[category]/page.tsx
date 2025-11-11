@@ -18,9 +18,8 @@ export default async function OrderPage(
   { params }: { params: Promise<Params> } // 👈 llega como Promise
 ) {
   const { category } = await params; // 👈 hay que await
-  console.log(category);
+
   const products = await getProducts((await params).category);
-  console.log(products);
 
   return (
     <>

@@ -26,7 +26,6 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   noStore(); // ✅ evita cache del segmento
-  console.log("Render <RootLayout>"); // ✅ debe verse en el terminal
 
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
